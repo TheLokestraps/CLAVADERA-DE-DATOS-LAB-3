@@ -14,7 +14,7 @@ public class ListaMascotas {
     NodoC ult;
         
     
-    NodoM Agregar(NodoM ptr, String Nombre, NodoS Servicios){
+    static NodoM Agregar(NodoM ptr, String Nombre, NodoS Servicios){
         NodoM p =  ptr;
         NodoM q = new NodoM();
         q.nombre = Nombre;

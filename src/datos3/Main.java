@@ -205,7 +205,27 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+<<<<<<< HEAD
    
+=======
+        if(Mascota.getText().isEmpty() != true && Dueño.getText().isEmpty() != true){
+            NodoC Cliente = ListaClientes.ptr;
+            NodoC C = Cliente;
+            while(C.siguiente != null && !C.nombre.equals(Dueño.getText())){
+                C = C.siguiente;
+            }
+            if(C.nombre.equals(Dueño.getText())){
+                String Pasar = JOptionPane.showInputDialog("Ingrese numero de servicios");
+                int n = Integer.parseInt(Pasar);
+                for (int i = 0; i < n; i++) {
+                    String Intro = JOptionPane.showInputDialog("Ingresar el Servicio #"+i+" hecho a la mascota");
+                    
+                }
+            }
+            
+            
+        }
+>>>>>>> origin/master
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -12,11 +12,31 @@ package datos3;
 public class ListaClientes {
     static NodoC ptr;
     static NodoC ult;
-}
 
+    NodoC addCola(NodoC ptr, String Nombre, String Cedula){
+        NodoC p =  ptr;
+        NodoC q = new NodoC();
+        q.nombre = Nombre;
+        q.cedula = Cedula;
+        if(ptr == null){
+            ptr = q;
+        }else{
+            while(p.link != null){
+                p = p.link;
+            }
+            p.link = q;
+        }
+        return ptr;
+    }
+    
+    
+    
+    
+}
 class NodoC{
     String nombre;
     String cedula;
     NodoC link;
 
 }
+

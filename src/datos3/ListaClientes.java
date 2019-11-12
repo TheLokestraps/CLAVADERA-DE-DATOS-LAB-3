@@ -51,6 +51,37 @@ public class ListaClientes {
     
     }
     
+    public static int costoCedulaMascota(String cedula, String Mascota){
+        int costo = 0;
+        NodoC p = ptr;
+        while(p != null){
+            if (p.cedula.equals(cedula)) {
+                NodoM q = new NodoM();
+                do{
+                    if (q.nombre.equals(Mascota)) {
+                        for (int i = 0; i < q.CostoT.length; i++) {
+                            costo =costo + ListaServicios.conversion(q.CostoT[i]);
+                        }
+                        return costo;
+                    }
+                    q = q.link;
+                }while(q != p.mascotas);
+            }
+            p = p.siguiente;
+        }
+        return costo;
+    }
+    
+    public static NodoM busquedaMascotas(String cedula){
+        NodoC p = ptr;
+        while(p != null){
+            if (p.cedula.equals(cedula)) {
+                return p.mascotas;
+            }
+            p = p.siguiente;
+        }
+        return null;
+    }
     
 }
 class NodoC{

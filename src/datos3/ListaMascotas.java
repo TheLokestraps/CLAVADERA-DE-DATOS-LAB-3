@@ -13,9 +13,6 @@ public class ListaMascotas {
     NodoC ptr;
     NodoC ult;
         
-    public ListaMascotas() {
-        
-    }
     
     NodoM Agregar(NodoM ptr, String Nombre, NodoS Servicios){
         NodoM p =  ptr;
@@ -35,8 +32,6 @@ public class ListaMascotas {
         }
         return ptr;
     }
-    
-    
     
     
 }

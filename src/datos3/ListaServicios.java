@@ -18,8 +18,8 @@ public class ListaServicios {
     
     
     
-    public void agregar(int costo, String descripcion){
-        NodoS nuevo = new NodoS(costo,descripcion);
+    public void agregar(int costo){
+        NodoS nuevo = new NodoS(costo);
         if (ptr == null) {
             ptr = nuevo;
             ult = nuevo;
@@ -30,16 +30,30 @@ public class ListaServicios {
         }
     }
     
+    public int conversion(int tipo){
+        switch(tipo){
+            case 1: 
+                return 50000;
+            case 2:
+                return 35000;
+            case 3:
+                return 25000;
+            case 4:
+                return 40000;
+            default:
+                return -1;
+        }
+    
+    }
+    
     
 }
 class NodoS{
     int costo;
-    String descripcion;
     NodoS link = null;
 
-    public NodoS(int costo, String descripcion) {
+    public NodoS(int costo) {
         this.costo = costo;
-        this.descripcion = descripcion;
     }
 
 }

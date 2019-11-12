@@ -30,7 +30,7 @@ public class ListaServicios {
         }
     }
     
-    public int conversion(int tipo){
+    public static int conversion(int tipo){
         switch(tipo){
             case 1: 
                 return 50000;

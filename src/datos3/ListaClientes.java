@@ -15,7 +15,7 @@ public class ListaClientes {
     public static NodoC ptr;
     public static NodoC ult;
 
-    public void addCola(String Nombre, String Cedula){
+    public static void addCola(String Nombre, String Cedula){
         NodoC p =  ptr;
         NodoC q = new NodoC();
         q.nombre = Nombre;
@@ -31,7 +31,7 @@ public class ListaClientes {
         }
     }
             
-    public void eliminarCliente(String cedula){
+    public static void eliminarCliente(String cedula){
         if (ptr == null) {
             JOptionPane.showMessageDialog(null, "La lista de clientes esta vacia.");
         }else{

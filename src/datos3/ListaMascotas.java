@@ -14,11 +14,12 @@ public class ListaMascotas {
     NodoC ult;
         
     
-    static NodoM Agregar(NodoM ptr, String Nombre, String[] Servicios,int CostoT){
+   public static NodoM Agregar(NodoM ptr, String Nombre, String[] Servicios,int Tamaño){
         NodoM p =  ptr;
         NodoM q = new NodoM();
         q.nombre = Nombre;
         q.CostoT = Servicios;
+        q.Tamaño = Tamaño;
         if(ptr == null){
             ptr = q;
         }else{
@@ -38,6 +39,7 @@ public class ListaMascotas {
 class NodoM{
     String nombre;
     String[] CostoT;
+    int Tamaño;
     NodoM link;
 
 

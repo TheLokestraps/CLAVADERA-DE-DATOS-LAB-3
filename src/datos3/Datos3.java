@@ -15,7 +15,8 @@ public class Datos3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Main C = new Main();
+        C.setVisible(true);
     }
     
 }

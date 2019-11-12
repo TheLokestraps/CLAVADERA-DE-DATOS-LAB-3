@@ -21,6 +21,8 @@ public class ListaMascotas {
     
 }
 class NodoM{
+    String nombre;
+    NodoS servicios = null;
     
 
 

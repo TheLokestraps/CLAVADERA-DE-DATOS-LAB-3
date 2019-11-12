@@ -87,6 +87,11 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton3.setText("Facturar TODOS cliente");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Facturar 1 Cliente");
 
@@ -205,9 +210,8 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-<<<<<<< HEAD
+
    
-=======
         if(Mascota.getText().isEmpty() != true && Dueño.getText().isEmpty() != true){
             NodoC Cliente = ListaClientes.ptr;
             NodoC C = Cliente;
@@ -225,7 +229,6 @@ public class Main extends javax.swing.JFrame {
             
             
         }
->>>>>>> origin/master
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -240,6 +243,30 @@ public class Main extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(!Todos.getText().isEmpty()){
+            NodoC Cliente = ListaClientes.ptr;
+            NodoC C = Cliente;
+            while(C.siguiente != null && !C.nombre.equals(Dueño.getText())){
+                C = C.siguiente;
+            }
+            if(C.nombre.equals(Todos.getText())){
+                NodoM ptrM = C.mascotas;
+                NodoM pM = ptrM;
+                int Total;
+                do {
+                    for(String S : pM.CostoT){
+                        if(S.equals("1")){
+                            
+                        }
+                        
+                    }
+                } while (pM != ptrM);
+                
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -15,7 +15,7 @@ public class ListaClientes {
     public static NodoC ptr;
     public static NodoC ult;
 
-    public void addCola(String Nombre, String Cedula){
+    public static void addCola(String Nombre, String Cedula){
         NodoC p =  ptr;
         NodoC q = new NodoC();
         q.nombre = Nombre;
@@ -31,7 +31,7 @@ public class ListaClientes {
         }
     }
             
-    public void eliminarCliente(String cedula){
+    public static void eliminarCliente(String cedula){
         if (ptr == null) {
             JOptionPane.showMessageDialog(null, "La lista de clientes esta vacia.");
         }else{
@@ -51,6 +51,37 @@ public class ListaClientes {
     
     }
     
+    public static int costoCedulaMascota(String cedula, String Mascota){
+        int costo = 0;
+        NodoC p = ptr;
+        while(p != null){
+            if (p.cedula.equals(cedula)) {
+                NodoM q = new NodoM();
+                do{
+                    if (q.nombre.equals(Mascota)) {
+                        for (int i = 0; i < q.CostoT.length; i++) {
+                            costo =costo + ListaServicios.conversion(q.CostoT[i]);
+                        }
+                        return costo;
+                    }
+                    q = q.link;
+                }while(q != p.mascotas);
+            }
+            p = p.siguiente;
+        }
+        return costo;
+    }
+    
+    public static NodoM busquedaMascotas(String cedula){
+        NodoC p = ptr;
+        while(p != null){
+            if (p.cedula.equals(cedula)) {
+                return p.mascotas;
+            }
+            p = p.siguiente;
+        }
+        return null;
+    }
     
 }
 class NodoC{

@@ -30,8 +30,26 @@ public class ListaServicios {
         }
     }
     
-    public int conversion(int tipo){
+    public static int conversion(int tipo){
         switch(tipo){
+            case 1: 
+                return 50000;
+            case 2:
+                return 35000;
+            case 3:
+                return 25000;
+            case 4:
+                return 40000;
+            default:
+                return -1;
+        }
+    
+    }
+    
+        public static int conversion(String tipo){
+            int num = Integer.valueOf(tipo);
+            
+            switch(num){
             case 1: 
                 return 50000;
             case 2:

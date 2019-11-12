@@ -225,10 +225,7 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
    
         if(Mascota.getText().isEmpty() != true && Dueño.getText().isEmpty() != true){
             NodoC Cliente = ListaClientes.ptr;

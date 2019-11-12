@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
  * @author jairojg
  */
 public class ListaClientes {
-    static NodoC ptr;
-    static NodoC ult;
+    public static NodoC ptr;
+    public static NodoC ult;
 
     NodoC addCola(NodoC ptr, String Nombre, String Cedula){
         NodoC p =  ptr;

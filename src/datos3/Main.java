@@ -1,5 +1,7 @@
 package datos3;
 
+import javax.swing.DefaultListModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,6 +19,25 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+    }
+    
+    void showListC(NodoC ptr){
+        DefaultListModel model = (DefaultListModel) lista.getModel();
+        model.clear();
+        NodoC p = ptr;
+        while(p != null){
+            model.addElement(p.nombre);
+            p = p.link;
+        }
+    }
+    void showListM(NodoM ptr){
+        DefaultListModel model = (DefaultListModel) lista.getModel();
+        model.clear();
+        NodoM p = ptr;
+        do{
+            model.addElement(p.nombre);
+            p = p.link;
+        }while(p != ptr);
     }
 
     /**
@@ -41,7 +62,7 @@ public class Main extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lista = new javax.swing.JList<>();
         jButton5 = new javax.swing.JButton();
         jTextField5 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -65,12 +86,12 @@ public class Main extends javax.swing.JFrame {
 
         jButton4.setText("Facturar 1 Cliente");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        lista.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(lista);
 
         jButton5.setText("Buscar Mascotas");
 
@@ -210,7 +231,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -219,5 +239,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JList<String> lista;
     // End of variables declaration//GEN-END:variables
 }

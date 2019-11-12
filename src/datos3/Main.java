@@ -20,6 +20,10 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        DefaultListModel model1 = new DefaultListModel();
+        lista1.setModel(model1);
+        DefaultListModel model2 = new DefaultListModel();
+        lista2.setModel(model2);
     }
     
     void showListC(NodoC ptr){
@@ -68,6 +72,8 @@ public class Main extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         lista2 = new javax.swing.JList<>();
         jButton1 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,6 +109,11 @@ public class Main extends javax.swing.JFrame {
         jScrollPane1.setViewportView(lista1);
 
         jButton5.setText("Buscar Mascotas");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         BuscarMascota.setText("Digite Dueño");
 
@@ -120,6 +131,20 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton6.setText("Eliminar Dueño");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setText("Facturar por cliente y mascota");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,26 +153,29 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(BuscarMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton5))))
+                                .addGap(53, 53, 53)
+                                .addComponent(jButton5))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Dueño, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                            .addComponent(Mascota))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Dueño, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                    .addComponent(Mascota)))
+                            .addComponent(jButton1)
+                            .addComponent(jButton7)
+                            .addComponent(jButton6))))
+                .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
@@ -166,7 +194,7 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(jButton3)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton4)))))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,15 +223,19 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addComponent(jButton4)
                     .addComponent(jButton1))
-                .addGap(45, 45, 45)
+                .addGap(5, 5, 5)
+                .addComponent(jButton6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton7)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
                     .addComponent(BuscarMascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -221,28 +253,54 @@ public class Main extends javax.swing.JFrame {
             if(C.nombre.equals(Dueño.getText())){
                 String Pasar = JOptionPane.showInputDialog("Ingrese numero de servicios");
                 int n = Integer.parseInt(Pasar);
-                for (int i = 0; i < n; i++) {
-                    String Intro = JOptionPane.showInputDialog("Ingresar el Servicio #"+i+" hecho a la mascota");
-                    
+                String [] Servicios = new String[n];
+               for (int i = 0; i < n; i++) {
+                    String SerHecho = JOptionPane.showInputDialog("Ingrese el tipo hecho");
+                   Servicios[i] = SerHecho; 
+              
                 }
+                NodoM A = C.mascotas;
+                C.mascotas = ListaMascotas.Agregar(A, Mascota.getText(), Servicios,n);
+                JOptionPane.showMessageDialog(rootPane, "Mascota Agregada con Exito", "EXITO", JOptionPane.INFORMATION_MESSAGE);
+              
             }
+            else{
+            if(Mascota.getText().isEmpty()){
+                JOptionPane.showMessageDialog(rootPane, "Por favor ingresar el Nombre de la Mascota", "ERROR", JOptionPane.WARNING_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "Por favor ingresar el Nombre del Dueño", "ERROR", JOptionPane.WARNING_MESSAGE);
+            }
+        }
             
             
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            
         String nombre = Dueño.getText();
         if (!nombre.isEmpty()) {
             String cedula = JOptionPane.showInputDialog("inserte su cedula");
-        }else{
+            ListaClientes.addCola(nombre, cedula);
             JOptionPane.showMessageDialog(null, "Persona agregada correctamente");
+            showListC(ListaClientes.ptr);
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor ingresar el Nombre");
         
         }
-        
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String cedula = JOptionPane.showInputDialog("inserte su cedula");
+        if (!cedula.isEmpty()) {
+            ListaClientes.eliminarCliente(cedula);
+            JOptionPane.showMessageDialog(null, "Persona eliminada correctamente");
+            showListC(ListaClientes.ptr);
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "ERROR 404 : NOT FOUND, POR FAVOR INGRESE CEDULA", "ERROR", JOptionPane.WARNING_MESSAGE);
+        }
+             
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if(!Todos.getText().isEmpty()){
@@ -254,19 +312,44 @@ public class Main extends javax.swing.JFrame {
             if(C.nombre.equals(Todos.getText())){
                 NodoM ptrM = C.mascotas;
                 NodoM pM = ptrM;
-                int Total;
+                int Total = 0;
                 do {
-                    for(String S : pM.CostoT){
-                        if(S.equals("1")){
-                            
+                    if(pM!=null){
+                        for(int i = 0; i < pM.Tamaño; i++){
+                            Total = Total + ListaServicios.conversion(Integer.parseInt(pM.CostoT[i]));
                         }
-                        
                     }
                 } while (pM != ptrM);
-                
+                JOptionPane.showMessageDialog(rootPane, "El costo total del servicio es de = $"+Total, "Total factura", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "No se encontro al Dueño", "ERROR", JOptionPane.WARNING_MESSAGE);
             }
+            
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "ERROR 404 : NOT FOUND, POR FAVOR INGRESE NOMBRE PARA FACTURAR", "ERROR", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        if (BuscarMascota.getText().isEmpty()) {
+            showListM(ListaClientes.busquedaMascotas(BuscarMascota.getText()));
+        }
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        if (!Dueño.getText().isEmpty() && !Mascota.getText().isEmpty()) {
+            int costo = ListaClientes.costoCedulaMascota(Dueño.getText(),Mascota.getText());
+            JOptionPane.showMessageDialog(rootPane, "Costo es "+(costo));
+        }
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -314,6 +397,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

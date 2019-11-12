@@ -5,6 +5,8 @@
  */
 package datos3;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jairojg
@@ -21,22 +23,50 @@ public class ListaClientes {
         if(ptr == null){
             ptr = q;
         }else{
-            while(p.link != null){
-                p = p.link;
+            while(p.siguiente != null){
+                p = p.siguiente;
             }
-            p.link = q;
+            p.siguiente = q;
         }
         return ptr;
     }
     
+    public void eliminarCliente(String cedula){
+        if (ptr == null) {
+            JOptionPane.showMessageDialog(null, "La lista de clientes esta vacia.");
+        }else{
+            NodoC antp = new NodoC();
+            antp.siguiente = ptr;
+            NodoC p = ptr;
+            while(p != null){
+                if (p.cedula.equals(cedula)) {
+                    antp.siguiente = p.siguiente;
+                    JOptionPane.showMessageDialog(null, "Cliente eliminado exitosamente.");
+                    break;
+                }
+                antp = p;
+                p = p.siguiente;
+            }
+        }
     
+    }
     
     
 }
 class NodoC{
     String nombre;
     String cedula;
-    NodoC link;
+    NodoC siguiente = null;
+    NodoM mascotas = null;
 
+    public NodoC(String nombre, String cedula) {
+        this.nombre = nombre;
+        this.cedula = cedula;
+    }
+
+    public NodoC() {
+    }
+    
+    
 }
 

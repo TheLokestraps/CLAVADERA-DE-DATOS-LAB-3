@@ -27,7 +27,7 @@ public class Main extends javax.swing.JFrame {
         NodoC p = ptr;
         while(p != null){
             model.addElement(p.nombre);
-            p = p.link;
+            p = p.siguiente;
         }
     }
     void showListM(NodoM ptr){

@@ -16,6 +16,8 @@ public class ListaServicios {
     public ListaServicios() {
     }
     
+    
+    
     public void agregar(int costo, String descripcion){
         NodoS nuevo = new NodoS(costo,descripcion);
         if (ptr == null) {
@@ -40,5 +42,4 @@ class NodoS{
         this.descripcion = descripcion;
     }
 
-    
 }
